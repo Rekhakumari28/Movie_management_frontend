@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { fetchMovies } from "../features/moviesSlice";
 import { Header } from "./Header";
 
@@ -23,9 +23,13 @@ console.log(movieData)
     
     <div className='col-md-7 border rounded p-3'>
       <h5>{movieData?.movieTitle}</h5>
-      <p className='mb-2 mt-4'>Director: {movieData?.director}</p>
+      <p className='mb-2 mt-3'>Director: {movieData?.director}</p>
       <p className='mb-2'>Genre: {movieData?.genre}</p>  
-
+       {movieData?.releaseYear ? <p className='mb-2'>Release Year: {movieData?.releaseYear}</p> :""} 
+       {movieData?.actors ? <p className='mb-2'>Actors: {movieData?.actors}</p>  : ""}
+       {movieData?.rating ? <p className='mb-2'>Rating: {movieData?.rating}</p>    :""}
+      
+      <Link className="bg-warning text-emphesis-warning py-2 px-3 mt-4 rounded" to={ `/addMovie/${movieData._id}`}>Edit</Link>
     </div>
   </div>
 

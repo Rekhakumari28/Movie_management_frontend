@@ -6,6 +6,12 @@ export const fetchMovies = createAsyncThunk("movies/fetchMovies", async()=>{
     return data
 })
 
+export const updateMovieAsync = createAsyncThunk("update/updateMovieAsync", async({movieId, updateMovie})=>{
+    const response = await axios.put(`https://movies-management-backend.vercel.app/movies/${movieId}`,updateMovie)
+    const data = response.data
+    return data 
+})
+
 export const addMovieAsync  = createAsyncThunk("add/addMovieAsync", async(newMovie)=>{
     const response = await axios.post("https://movies-management-backend.vercel.app/movies", newMovie)
     const data = response.data

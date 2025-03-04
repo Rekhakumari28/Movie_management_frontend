@@ -18,6 +18,7 @@ createRoot(document.getElementById('root')).render(
   <Routes>
     <Route path="/" element={<App />} />
     <Route path="/addMovie" element={<AddMovie />} />
+    <Route path="/addMovie/:movieId" element={<AddMovie />} />
     <Route path="/movieDetail/:movieId" element={<MovieDetails />} />
   </Routes>
 </Router>    
